@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - AWS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f3f4f6;
+            background-image: url(https://images.unsplash.com/photo-1523293915678-d126868e96f1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGxhcmdlJTIwYW1vdW50cyUyMG9mJTIwd2FzdGV8ZW58MHx8MHx8fDA%3D);
+            background-position: center;
+        }
+
+        .signup-container {
+            background: linear-gradient(
+                to bottom right,
+                #ececec,
+                #9fd3c7,
+                #385170,
+                #142d4c
+            );
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2), 
+                        0 6px 6px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            color: black;
+        }
+        .signup-container:hover {
+            border: 2px solid white;
+        }
+
+        .signup-container h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .signup-container input[type="text"],
+        .signup-container input[type="password"],
+        .signup-container input[type="number"],
+        .signup-container select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .signup-container button {
+            width: 100%;
+            padding: 10px;
+            background: #ececec;
+            color: #142d4c;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+
+        .signup-container button:hover {
+            background: #142d4c;
+            color: #ffffff;
+            border: 2px solid wheat;
+        }
+
+        .signup-container .login-link {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .signup-container .login-link a {
+            color: #ececec;
+            text-decoration: none;
+        }
+
+        .signup-container .login-link a:hover {
+            text-decoration: underline;
+        }h4{
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="signup-container">
+        <h2>Sign Up</h2>
+        <form action="/auth/register" method="POST">
+            <input type="text" placeholder="Name" id="name" name="Name" >
+            <input type="text" placeholder="Email" id="email" name="Email" >
+            <input type="password" placeholder="Password" id="Password" name="Password" >
+            <input type="password" placeholder="ConfirmPassword" id="ConfirmPassword" name="ConfirmPassword" >
+            <button type="submit">Sign Up</button>
+        </form>
+        <div class="login-link">
+            Already have an account? <a href="login">Login</a>
+        </div>
+        <h4>{{error}}</h4>
+    </div>
+</body>
+
+</html>

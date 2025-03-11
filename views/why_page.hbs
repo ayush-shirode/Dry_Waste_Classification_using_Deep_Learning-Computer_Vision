@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sortify - Why</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --theme-color: #63FFB6;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            padding-top: 90px;
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            width: 782px;
+            height: 62px;
+            background-color: rgb(250, 250, 250);
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 52.53px;
+            align-items: center;
+            padding: 0 9px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            justify-content: space-between;
+            z-index: 1000;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            height: 50px;
+            width: 50px;
+        }
+
+        .navbar-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .navbar-menu {
+            display: flex;
+            justify-content: center;
+            flex-grow: 1;
+            gap: 25px;
+        }
+
+        .navbar-menu a {
+            text-decoration: none;
+            color: black;
+            padding: 5px 10px;
+            transition: background 0.3s ease;
+            border-radius: 52.53px;
+        }
+
+        .navbar-menu a:hover,
+        .navbar-menu a.active {
+            background: var(--theme-color);
+        }
+
+        .navbar-right {
+            display: flex;
+            gap: 10px;
+            margin-left: auto;
+        }
+
+        .navbar-right a {
+            text-decoration: none;
+            color: black;
+            padding: 5px 15px;
+            border-radius: 15px;
+            transition: background 0.3s ease;
+        }
+
+        .navbar-right a:hover {
+            background: var(--theme-color);
+        }
+
+        .product-btn {
+            background: var(--theme-color);
+            padding: 5px 15px;
+            border-radius: 15px;
+        }
+
+        .logout:hover {
+            background: rgb(255, 175, 175) !important;
+            transform: scale(1.05);
+        }
+
+        .cards-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: 18%;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .title {
+            font-size: 50px;
+            font-weight: 700;
+            color: black;
+            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 40%);
+            z-index: 10;
+        }
+
+        .title-left {
+            font-size: 70px;
+            font-weight: 500;
+        }
+
+        .title-right {
+            font-size: 40px;
+        }
+
+        .impact-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+            gap: 40px;
+            flex-wrap: wrap;
+            background: #f9f9f9;
+        }
+
+        .impact-text {
+            width: 45%;
+            text-align: left;
+        }
+
+        .impact-text h2 {
+            font-size: 28px;
+            font-weight: 500;
+            line-height: 1.5;
+            color: #222;
+        }
+
+        .highlight {
+            font-weight: 700;
+            color: black;
+            background-color: var(--theme-color);
+            /* Strong color for impact */
+        }
+
+        .bold {
+            font-weight: 700;
+        }
+
+        .impact-video {
+            width: 45%;
+        }
+
+        .impact-video video {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .impact-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .impact-text,
+            .impact-video {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="navbar-left">
+            <img src="images/logo_sortify.jpg" alt="Sortify Logo" class="navbar-logo">
+            <span class="navbar-title">Sortify</span>
+        </div>
+        <div class="navbar-menu">
+            <a href="home_page">Home</a>
+            <a href="why_page" class="active">Why ?</a>
+            <a href="join_page">Join Us</a>
+            <a href="contact_page">Contact Us</a>
+        </div>
+        <div class="navbar-right">
+            <a href="product_page">Product</a>
+            <a href="/logout" class="logout">Logout</a>
+        </div>
+    </div>
+
+
+
+    <div class="cards-container">
+        <div class="card" style="background-image: url('images/card1.jpeg');"></div>
+        <div class="card" style="background-image: url('images/card2.jpg');"></div>
+        <div class="card" style="background-image: url('images/card3.jpg');"></div>
+        <div class="card" style="background-image: url('images/card4.jpeg');"></div>
+        <div class="card" style="background-image: url('images/card5.jpeg');"></div>
+    </div>
+    <div class="title-container">
+        <div class="title-left">2 Billion Tonnes </div>
+        <div class="title-right">of Unsorted Waste every year</div>
+    </div>
+
+    <div class="impact-section">
+        <div class="impact-text">
+            <h2>
+                <span class="highlight">Improper waste disposal</span><br> is choking our planet, <br>
+                <span class="bold">polluting our oceans</span>, <br>and harming wildlife. <br><br>
+
+                With our <br><span class="highlight">AI-powered computer vision software</span>, <br>
+                we make <span class="bold">waste segregation effortless</span>, ensuring recyclables <br>
+                don’t end up in landfills and our environment stays clean <br>
+                <span class="bold highlight">for future generations.</span>
+            </h2>
+        </div>
+        <div class="impact-video">
+            <video autoplay loop muted playsinline>
+                <source src="images/trash-recycling.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+</body>
+
+</html>

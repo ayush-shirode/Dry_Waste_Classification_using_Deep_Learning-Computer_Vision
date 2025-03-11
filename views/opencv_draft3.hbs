@@ -1,0 +1,253 @@
+<div id="title1">COMPUTER VISION BASED APPROACH FOR EFFICENT</div>
+<div id="title2">DRY WASTE CLASSIFICATION AND SEGREGATION</div>
+<button type="button" id="but1" onclick="init(),style.display = 'none'">Start</button>
+<form id="executeQuery">
+<button type="submit" id="but2" onclick="captureImage()">Capture Image</button></form>
+<div id="webcam-container"></div>
+<div id="label-container"></div>
+<div id="captured-image-container" style="display: flex; flex-wrap: wrap; gap: 4px; text-align: center;">
+    <!-- To display captured image -->
+</div>
+
+<style>    
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+        min-height: 100vh;
+        margin: 0;
+        background-color: aliceblue;
+        /* background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1000%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='%230e2a47'%3e%3c/rect%3e%3cpath d='M1397.87 474.84L1400.18 474.84L1400.18 477.15L1397.87 477.15z' stroke='%23d3b714'%3e%3c/path%3e%3cpath d='M341.94 364.86a28.43 28.43 0 1 0 43.04-37.16z' stroke='%23d3b714'%3e%3c/path%3e%3cpath d='M357.35 222.46a49.74 49.74 0 1 0 31.31-94.42z' stroke='%23e73635'%3e%3c/path%3e%3cpath d='M757.16 277.56a53.65 53.65 0 1 0-91.03-56.81z' stroke='%23d3b714'%3e%3c/path%3e%3cpath d='M1328.32 454L1382.39 454L1382.39 474.32L1328.32 474.32z' stroke='%23d3b714'%3e%3c/path%3e%3cpath d='M1087.7 360.48L1114.59 360.48L1114.59 387.37L1087.7 387.37z' fill='%23e73635'%3e%3c/path%3e%3cpath d='M325.84 53.5L374.88 53.5L374.88 73.91L325.84 73.91z' fill='%23037b0b'%3e%3c/path%3e%3cpath d='M388.54 8.22L407.57 8.22L407.57 50.26L388.54 50.26z' fill='%23d3b714'%3e%3c/path%3e%3cpath d='M132.61 261.06L187.3 261.06L187.3 314.51L132.61 314.51z' fill='%23037b0b'%3e%3c/path%3e%3cpath d='M364.96 84.71L378.12 84.71L378.12 97.87L364.96 97.87z' fill='%23d3b714'%3e%3c/path%3e%3cpath d='M1240.72 341.9L1290.71 341.9L1290.71 391.89L1240.72 391.89z' stroke='%23037b0b'%3e%3c/path%3e%3cpath d='M530.16 458.2 a31.88 31.88 0 1 0 63.76 0 a31.88 31.88 0 1 0 -63.76 0z' fill='%23e73635'%3e%3c/path%3e%3cpath d='M539.43 54.43 a34.83 34.83 0 1 0 69.66 0 a34.83 34.83 0 1 0 -69.66 0z' stroke='%23d3b714'%3e%3c/path%3e%3cpath d='M253.13 109.43L294.83 109.43L294.83 151.13L253.13 151.13z' fill='%23e73635'%3e%3c/path%3e%3cpath d='M543.6 14.37L554.93 14.37L554.93 47.26L543.6 47.26z' stroke='%23d3b714'%3e%3c/path%3e%3cpath d='M641.8 77.17L661.7 77.17L661.7 125.22L641.8 125.22z' fill='%23037b0b'%3e%3c/path%3e%3cpath d='M719.45 559.02L720.88 559.02L720.88 560.45L719.45 560.45z' fill='%23037b0b'%3e%3c/path%3e%3cpath d='M672.47 154.03a0.59 0.59 0 1 0-0.42-1.11z' stroke='%23e73635'%3e%3c/path%3e%3cpath d='M1237.93 501.35 a25.94 25.94 0 1 0 51.88 0 a25.94 25.94 0 1 0 -51.88 0z' stroke='%23037b0b'%3e%3c/path%3e%3cpath d='M810.24 390.8L824.61 390.8L824.61 445.73L810.24 445.73z' fill='%23d3b714'%3e%3c/path%3e%3cpath d='M168.89 232.88 a53.36 53.36 0 1 0 106.72 0 a53.36 53.36 0 1 0 -106.72 0z' fill='%23d3b714'%3e%3c/path%3e%3cpath d='M579.17 79.78L606.8 79.78L606.8 102.97L579.17 102.97z' fill='%23d3b714'%3e%3c/path%3e%3cpath d='M614.87 153.02L670.36 153.02L670.36 208.51L614.87 208.51z' fill='%23e73635'%3e%3c/path%3e%3cpath d='M214.52 487.27a38.45 38.45 0 1 0-76.75-4.7z' fill='%23e73635'%3e%3c/path%3e%3cpath d='M113.81 116.71L133.28 116.71L133.28 123.41L113.81 123.41z' fill='%23d3b714'%3e%3c/path%3e%3cpath d='M1043.46 477.58L1065.74 477.58L1065.74 499.86L1043.46 499.86z' stroke='%23d3b714'%3e%3c/path%3e%3cpath d='M1162.45 186.38a39.89 39.89 0 1 0-68.37-41.12z' stroke='%23d3b714'%3e%3c/path%3e%3cpath d='M335.3 398.78L383.48 398.78L383.48 444.54L335.3 444.54z' stroke='%23d3b714'%3e%3c/path%3e%3cpath d='M378.84 285.86a30.13 30.13 0 1 0 49.38 34.53z' fill='%23d3b714'%3e%3c/path%3e%3cpath d='M255.11 98.84L259.92 98.84L259.92 140.39L255.11 140.39z' stroke='%23037b0b'%3e%3c/path%3e%3cpath d='M1122.24 239.92L1135.59 239.92L1135.59 253.27L1122.24 253.27z' stroke='%23d3b714'%3e%3c/path%3e%3cpath d='M759.32 380.48a3.34 3.34 0 1 0 2.68 6.12z' fill='%23037b0b'%3e%3c/path%3e%3cpath d='M963.16 16.76L997.53 16.76L997.53 51.13L963.16 51.13z' fill='%23037b0b'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1000'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");        background-attachment: fixed; */
+        background-size: cover;
+    }
+
+    #title1 {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: rgb(7, 13, 13);
+        font-size: 40px;
+        position: absolute;
+        align-items: center;
+        margin-top: 40px !important;
+        padding-top: 0 !important;
+    }
+    #title2 {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #070713;
+        font-size: 40px;
+        position: absolute;
+        align-items: center;
+        margin-top: 90px !important;
+        padding-top: 0 !important;
+    }
+
+    /* .main-container {
+        display: flex;
+        border: 4px solid black;
+        padding: 20px;
+        border-radius: 8px;
+        background-color: white ;
+    } */
+
+    #webcam-container {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 23vw;
+        height: 23vw;
+        padding: 0;
+        left: 21vw;
+        top: 30vh;
+        border: 3px solid black;
+        border-radius: 8px;
+        background-color: white;
+    }
+
+    #webcam-container img {
+        border-radius: 4px;
+    }
+
+    
+    #captured-image-container {
+        display: flex;
+        position: absolute;
+        top: 30vh;
+        left: 56vw;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 23vw;
+        height: 23vw;
+        border: 3px solid black;
+        border-radius: 8px;
+        background-color: white;
+    }
+
+    #captured-image-container img {
+        max-width: 100%;
+        border-radius: 4px;
+    }
+
+    
+    button {
+        background-color:white;
+        border: 3px solid black;
+        color: #0E2A47;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 45vh;
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 5px;
+        /* height: 23vw;
+        width: 23vw; */
+        border-radius: 100%;
+        margin-right: 140px;
+        z-index: 10;
+    }
+    #but2{
+        position: absolute;
+        background-color: blanchedalmond;
+        left: 46.5%;
+        height: 15vh;
+        width: 15vh;
+        border: 3px solid black;
+    }
+
+    #but1{
+        /* border: 3px solid black; */
+        position: absolute;
+        top: -14.6vh;
+        left: 21.12vw;
+        height: 23vw;
+        width: 23vw;
+        border-radius: 8px;
+        font-size: 50px;
+    }
+
+    button:hover {
+        background-color:rgb(208, 193, 193);
+    }
+
+    
+    .arrow {
+        font-size: 24px;
+        color: #0E2A47;
+        text-align: center;
+        margin-top: 30px;
+        font-weight: bold;
+    }
+
+    .label-container {
+        margin-top: 10px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    canvas {
+        height: 23vw;
+        width: 23vw;
+    }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+<script src="update.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+
+<script type="text/javascript">
+    document.getElementById("executeQuery").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const response = await fetch("/submit", {
+      method: "POST",
+      
+    });
+  });
+    const URL = "./my_model/";
+
+    let model, webcam, labelContainer, maxPredictions;
+
+    // Load the image model and setup the webcam
+    async function init() {
+        const modelURL = URL + "model.json";
+        const metadataURL = URL + "metadata.json";
+
+        // load the model and metadata
+        model = await tmImage.load(modelURL, metadataURL);
+        maxPredictions = model.getTotalClasses();
+
+        // Convenience function to setup a webcam
+        const flip = true; // whether to flip the webcam
+        webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
+        async function setupWebcam() {
+            if (webcam.stream) {
+                stopWebcam(); // Stop any previous instance
+            }
+            
+            try {
+                webcam.stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                document.getElementById("webcam-container").srcObject = webcam.stream;
+            } catch (error) {
+                console.error("Camera access error:", error);
+            }
+        }
+        await webcam.setup(); // request access to the webcam
+        await webcam.play();
+        window.requestAnimationFrame(loop);
+
+        // append elements to the DOM
+        document.getElementById("webcam-container").appendChild(webcam.canvas);
+        labelContainer = document.getElementById("label-container");
+        for (let i = 0; i < maxPredictions; i++) { // and class labels
+            labelContainer.appendChild(document.createElement("div"));
+        }
+    }
+
+    async function loop() {
+        webcam.update(); // update the webcam frame
+        window.requestAnimationFrame(loop);
+    }
+
+    // Capture the current image from the webcam
+    async function captureImage() {
+        const capturedImageCanvas = webcam.canvas; // Get the current webcam frame
+        const capturedImage = capturedImageCanvas.toDataURL(); // Convert canvas to image
+
+        // Clear previous content in captured-image-container
+        const container = document.getElementById("captured-image-container");
+        container.innerHTML = "";
+
+        // Create a div to hold the new image and predictions
+        const abc = document.createElement("div");
+        abc.style.border = "4px solid black";
+        abc.style.borderRadius = "5px";
+        const imgElement = document.createElement("img");
+        imgElement.src = capturedImage;
+        abc.appendChild(imgElement);
+        container.appendChild(abc);
+
+        // Predict using the captured image
+        const prediction = await model.predict(capturedImageCanvas);
+        for (let i = 0; i < maxPredictions; i++) {
+            const classPrediction =
+                prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+            const aa = document.createElement("p");
+            aa.innerHTML = classPrediction;
+            abc.appendChild(aa);
+        } if (webcam.stream) {
+        webcam.stream.getTracks().forEach(track => track.stop()); // Stop all tracks
+        webcam.stream = null; // Reset webcam stream
+    }
+    }
+
+    // Run the captured image through the image model
+    async function predict(capturedImageCanvas) {
+        const prediction = await model.predict(capturedImageCanvas);
+        for (let i = 0; i < maxPredictions; i++) {
+            const classPrediction =
+                prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+            labelContainer.childNodes[i].innerHTML = classPrediction;
+        }valid();
+    }
+</script>

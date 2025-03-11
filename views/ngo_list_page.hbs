@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGO Partners</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --theme-color: #63FFB6;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #ffffff;
+            text-align: center;
+            position: relative;
+        }
+
+        .navbar {
+            display: flex;
+            width: 782px;
+            height: 62px;
+            background-color: rgb(250, 250, 250);
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 52.53px;
+            align-items: center;
+            padding: 0 9px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            justify-content: space-between;
+            z-index: 1000;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            height: 50px;
+            width: 50px;
+        }
+
+        .navbar-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .navbar-menu {
+            display: flex;
+            justify-content: center;
+            flex-grow: 1;
+            gap: 25px;
+        }
+
+        .navbar-menu a {
+            text-decoration: none;
+            color: black;
+            padding: 5px 10px;
+            transition: background 0.3s ease;
+            border-radius: 52.53px;
+        }
+
+        .navbar-menu a:hover,
+        .navbar-menu a.active {
+            background: var(--theme-color);
+        }
+
+        .navbar-right {
+            display: flex;
+            gap: 10px;
+            margin-left: auto;
+        }
+
+        .navbar-right a {
+            text-decoration: none;
+            color: black;
+            padding: 5px 15px;
+            border-radius: 15px;
+            transition: background 0.3s ease;
+        }
+
+        .navbar-right a:hover {
+            background: var(--theme-color);
+        }
+
+        .logout:hover {
+            background: rgb(255, 175, 175) !important;
+            transform: scale(1.05);
+        }
+
+        .ngo-partners {
+            transform: translate(-540px, 0px) scale(0.9);
+            background: var(--theme-color);
+            margin-top: 0px;
+            margin-bottom: 50px;
+            padding: 0px;
+            height: 40px;
+            color: black;
+            border-radius: 100%;
+            /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
+        }
+
+        .ngo-table {
+            width: 80%;
+            border-collapse: collapse;
+            background: rgb(250, 250, 250);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+        }
+
+        .ngo-table th,
+        .ngo-table td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .ngo-table th {
+            background-color: var(--theme-color);
+            font-weight: 600;
+        }
+
+        .ngo-count {
+            position: absolute;
+            top: 18px;
+            right: 20px;
+            background: var(--theme-color);
+            color: black;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .ngo-count:hover {
+            width: 180px;
+            border-radius: 25px;
+        }
+
+        .ngo-count::after {
+            content: "";
+            font-size: 0;
+            transition: font-size 0.3s ease;
+        }
+
+        .ngo-count:hover::after {
+            content: " NGOs Registered";
+            font-size: 16px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="navbar-left">
+            <img src="images/logo_sortify.jpg" alt="Sortify Logo" class="navbar-logo">
+            <span class="navbar-title">Sortify</span>
+        </div>
+        <div class="navbar-menu">
+            <a href="home_page">Home</a>
+            <a href="why_page">Why ?</a>
+            <a href="join_page" class="active">Join Us</a>
+            <a href="contact_page">Contact Us</a>
+        </div>
+        <div class="navbar-right">
+            <a href="product_page">Product</a>
+            <a href="/logout" class="logout">Logout</a>
+        </div>
+    </div>
+
+    <div class="ngo-count NGOregistered" id="ngo-count">{{total_registration}}</div>
+
+    <h1 class="ngo-partners">Our NGO Partners</h1>
+
+    <div id="NGOs">
+        <table class="ngo-table" id="tabledata">
+            <tr id="data">
+                <th>Sr. No</th>
+                <th>NGO Name</th>
+                <th>Area</th>
+                <th>Contact</th>
+                <th>Email</th>
+            </tr>
+            <tbody>
+                {{#each Data}}
+                <tr>
+                    <td>{{id}}</td>
+                    <td>{{name}}</td>
+                    <td>{{area}}</td>
+                    <td>{{phonenumber}}</td>
+                    <td>{{email}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

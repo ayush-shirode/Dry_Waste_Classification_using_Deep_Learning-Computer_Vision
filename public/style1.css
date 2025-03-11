@@ -1,0 +1,57 @@
+h1 {
+    text-align: center;
+    font-size: 60px;
+}
+
+.NGOregistered {
+    padding-top: 55px;
+    text-align: center;
+    background-color: hsl(215, 35%, 71%);
+    height: 175px;
+    width: 230px;
+    margin-left: 40px;
+    border-radius: 100%;
+}
+
+.product_recycled {
+    padding-top: 55px;
+    text-align: center;
+    background-color: hsl(215, 35%, 71%);
+    height: 175px;
+    width: 230px;
+    margin-top: 60px;
+    margin-left: 40px;
+    border-radius: 100%;
+}
+
+#data {
+    background-color: hsl(215, 35%, 71%);
+    position: absolute;
+    margin-left: 25vw;
+    top: 21vh;
+}
+
+li {
+    padding: 0 30px 0 30px;
+    display: inline;
+}
+
+#tabledata {
+    padding-left: 45px;
+    padding-right: 45px;
+}
+
+td {
+    padding-right: 45px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#NGOs {
+    background-color: hsl(216, 21%, 86%);
+    height: 32vw;
+    position: fixed;
+    margin-left: 25vw;
+    top: 206px;
+    width: 1039px;
+}
